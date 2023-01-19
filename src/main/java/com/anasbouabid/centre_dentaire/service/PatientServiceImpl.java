@@ -2,6 +2,8 @@ package com.anasbouabid.centre_dentaire.service;
 
 import com.anasbouabid.centre_dentaire.models.Patient;
 import com.anasbouabid.centre_dentaire.repository.PatientRepository;
+import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -15,12 +17,10 @@ import java.util.Optional;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @Service
+@NoArgsConstructor
 public class PatientServiceImpl implements PatientService{
+    @Autowired
     private PatientRepository patientRepository;
-
-    public PatientServiceImpl(PatientRepository patientRepository){
-        this.patientRepository = patientRepository;
-    }
 
     @Override
     public List<Patient> getAllPatients() {
