@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/disease")
+@RequestMapping("/api/diseases")
 public class DiseaseController {
     private DiseaseServiceImpl diseaseService;
 
