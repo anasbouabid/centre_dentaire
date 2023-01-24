@@ -3,6 +3,7 @@ package com.anasbouabid.centre_dentaire.controllers;
 import com.anasbouabid.centre_dentaire.models.Patient;
 import com.anasbouabid.centre_dentaire.service.PatientServiceImpl;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -58,4 +59,5 @@ public class PatientController {
     {
         patientService.deletePatientById(id);
     }
+
 }

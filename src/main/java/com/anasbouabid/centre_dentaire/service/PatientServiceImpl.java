@@ -1,5 +1,6 @@
 package com.anasbouabid.centre_dentaire.service;
 
+import com.anasbouabid.centre_dentaire.models.Disease;
 import com.anasbouabid.centre_dentaire.models.Patient;
 import com.anasbouabid.centre_dentaire.repository.PatientRepository;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
@@ -47,6 +49,14 @@ public class PatientServiceImpl implements PatientService{
     @Override
     public void deletePatientById(long id) {
         patientRepository.deleteById(id);
+    }
+
+    @Override
+    public Patient addDiseases(Patient patient, Set<Disease> diseases) {
+        diseases.addAll(patient.getDiseases());
+        patient.setDiseases(diseases);
+        patientRepository.save(patient);
+        return patient;
     }
 
     @Override
